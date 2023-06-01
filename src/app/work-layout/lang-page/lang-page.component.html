@@ -1,0 +1,29 @@
+<div id="up"></div>
+<section>
+    <img class="logo" src="../../../assets/logo.svg" alt="WTF-Logo">
+    <div class="decorator">
+        <span class="white-line"></span>
+        <span class="yellow-line"></span>
+    </div>
+    <div class="languages">
+        <button
+        [ngClass]="selectedLanguage('ru')"
+        (click)="selectLanguage('ru')">
+            РУС
+        </button >
+        <button 
+        [ngClass]="selectedLanguage('md')"
+        (click)="selectLanguage('md')">
+            MD
+        </button>
+        <button 
+        [ngClass]="selectedLanguage('en')"
+        (click)="selectLanguage('en')">
+            ENG
+        </button>
+    </div>
+    <div class="decorator">
+        <span class="white-line"></span>
+        <span class="yellow-line"></span>
+    </div>
+</section>

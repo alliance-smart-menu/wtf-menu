@@ -1,0 +1,144 @@
+<header>
+    <div class="header">
+        <div class="categories-container">
+            <span 
+            (click)="setCategory('64738c84699f77307907676d')"
+            class="category">
+                <img class="icon" src="../../../assets/food.svg" alt="Food">
+                <b 
+                [ngClass]="selectedCategory('64738c84699f77307907676d')"
+                >{{html.kitchen[menuService.language]}}</b>
+            </span>
+            <!-- <b>/</b> -->
+            <span 
+            class="category"
+            (click)="setCategory('64738c0f699f773079076767')">
+                <img class="icon" src="../../../assets/bar.svg" alt="Bar">
+                <b 
+                [ngClass]="selectedCategory('64738c0f699f773079076767')"
+                >{{html.bar[menuService.language]}}</b>
+            </span>
+        </div>
+        <div class="sub-categories-container">
+            <select name="" id="sub-categories">
+                <option value="Завтра">Заврак</option>
+                <option value="Завтра">Обед</option>
+            </select>
+        </div>
+    </div>
+    <div class="decorator">
+        <span class="yellow-line"></span>
+        <span class="white-line"></span>
+    </div>
+</header>
+<section>
+    <div class="position">
+        <div class="image">
+            <img class="position-image" src="../../../assets/img/Espresso.png" alt="">
+        </div>
+        <div class="info">
+            <span class="name">
+                <h3>Цезарь с креветками и варенной залуупой</h3>
+            </span>
+            <span class="gramm">
+                <b class="price-info">
+                    <ng-container >
+                        <b class="active weigth-price">120 гр.</b>
+                        &nbsp;
+                        /
+                        &nbsp;
+                    </ng-container>
+                    <ng-container >
+                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
+                    </ng-container>
+                  
+                </b>
+                <img 
+                [routerLink]="['/position']"
+                class="more" src="../../../assets/more.svg" 
+                alt="More">
+            </span>
+        </div>
+    </div>
+    <div class="position">
+        <div class="image">
+            <img class="position-image" src="../../../assets/img/Espresso.png" alt="">
+        </div>
+        <div class="info">
+            <span class="name">
+                <h3>Цезарь с креветками и варенной залуупой</h3>
+            </span>
+            <span class="gramm">
+                <b class="price-info">
+                    <ng-container >
+                        <b class="active weigth-price">120 гр.</b>
+                        &nbsp;
+                        /
+                        &nbsp;
+                    </ng-container>
+                    <ng-container >
+                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
+                    </ng-container>
+                  
+                </b>
+                <img 
+                [routerLink]="['/position']"
+                class="more" src="../../../assets/more.svg" 
+                alt="More">
+            </span>
+        </div>
+    </div>
+    <div class="position">
+        <div class="image">
+            <img class="position-image" src="../../../assets/img/Espresso.png" alt="">
+        </div>
+        <div class="info">
+            <span class="name">
+                <h3>Цезарь с креветками и варенной залуупой</h3>
+            </span>
+            <span class="gramm">
+                <b class="price-info">
+                    <ng-container >
+                        <b class="active weigth-price">120 гр.</b>
+                        &nbsp;
+                        /
+                        &nbsp;
+                    </ng-container>
+                    <ng-container >
+                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
+                    </ng-container>
+                  
+                </b>
+                <img 
+                [routerLink]="['/position']"
+                class="more" src="../../../assets/more.svg" 
+                alt="More">
+            </span>
+        </div>
+    </div>
+    <div class="position-2">
+        <div class="info">
+            <span class="name-2">
+                <h4>Цезарь с креветками и варенной залуупой</h4>
+            </span>
+            <span class="gramm-2">
+                <b class="price-info">
+                    <ng-container >
+                        <b class="active weigth-price">120 гр.</b>
+                        &nbsp;
+                        /
+                        &nbsp;
+                    </ng-container>
+                    <ng-container >
+                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
+                    </ng-container>
+                </b>
+            </span>
+        </div>
+        <div class="more-container">
+            <img 
+            [routerLink]="['/position']" 
+            class="more" src="../../../assets/more.svg" alt="More">
+        </div>
+    </div>
+</section>

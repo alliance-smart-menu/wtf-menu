@@ -1,0 +1,26 @@
+<div id="up"></div>
+<main>
+    <img class="logo" src="../../assets/logo.svg" alt="WTF-Logo">
+    <h3 style="color: var(--color_select);">{{html.welcome[menuService.language]}}</h3>
+    <div class="decorator">
+        <span class="white-line"></span>
+        <span class="yellow-line"></span>
+    </div>
+    <div class="languages">
+        <button (click)="selectLanguage('ru')" >
+            РУС
+        </button>
+        <button (click)="selectLanguage('md')">
+            MD
+        </button>
+        <button (click)="selectLanguage('en')">
+            ENG
+        </button>
+    </div>
+    <div class="decorator">
+        <span class="white-line"></span>
+        <span class="yellow-line"></span>
+    </div>
+    <h3>{{html.select[menuService.language]}}</h3>
+</main>
+<div id="down"></div>

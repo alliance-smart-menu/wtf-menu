@@ -1,0 +1,28 @@
+<header>
+    <div class="header">
+        <span class="logo-container">
+            <img class="logo" src="../../assets/logo.svg" alt="WTF-Logo">
+        </span>
+        <span class="navigation-container">
+            <span class="navigation" [routerLink]="['/menu']" routerLinkActive="active">
+                <img class="icon" src="../../assets/menu.svg" alt="MENU">
+                <b>{{html.menu[menuService.language]}}</b>
+            </span>
+            <span class="navigation" [routerLink]="['/about']" routerLinkActive="active">
+                <img class="icon" src="../../assets/info.svg" alt="ABOUT US">
+                <b>{{html.contacts[menuService.language]}}</b>
+            </span>
+            <span class="navigation" [routerLink]="['/lang']" routerLinkActive="active">
+                <img class="icon" src="../../assets/language.svg" alt="LANGUAGE">
+                <b>{{html.language[menuService.language]}}</b>
+            </span>
+        </span>
+    </div>
+    <div class="decorator">
+        <span class="yellow-line"></span>
+        <span class="white-line"></span>
+    </div>
+</header>
+<section>
+    <router-outlet></router-outlet>
+</section>

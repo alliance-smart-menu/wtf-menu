@@ -1,0 +1,174 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color_main);
+    width: 100%;
+    height: var(--header_heigth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    height: calc(100% - 5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 90%;
+}
+
+.button-container {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-family: 'Anton', 'Impact',sans-serif;
+    cursor: pointer;
+    height: 70%;
+    width: 30%;
+    font-size: 18px;
+    color: white;
+    border: 1px solid var(--color_select);
+    border-radius: 0;
+    background-color: transparent;
+}
+
+button:hover {
+    background-color: var(--color_select);
+}
+
+.decorator {
+    width: 100%;
+    height: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.white-line {
+    width: 55%;
+    height: 100%;
+    background-color: white;
+}
+
+.yellow-line {
+    width: 40%;
+    height: 100%;
+    background-color: var(--color_select);
+}
+
+section {
+    width: 100%;
+    padding-top: var(--header_heigth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container {
+    width: 100%;
+    height: 500px;
+    background-image: url('../../assets/image-background.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position-image {
+    width: 30%;
+}
+
+.info-title-container {
+    margin-top: 20px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h3 {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    text-align: left;
+}
+
+.cost {
+    display: flex;
+}
+
+.about {
+    width: 70%;
+    padding: 8px 0px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    font-size: 16px;
+}
+
+.weigth {
+    width: 70%;
+    text-align: right;
+}
+
+@media screen and (max-width: 700px) { 
+
+    h3 {
+        font-size: 18px;
+    }
+
+    button {
+        height: 70%;
+        width: 80%;
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 60%;
+    }
+
+    .image-container {
+        height: 200px;
+        background-size: 50%;
+    }
+
+    .position-image {
+        width: 60%;
+    }
+  
+    .info-title-container {
+        width: 90%;
+    }
+
+    .about {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .weigth {
+        width: 90%;
+    }
+
+
+}

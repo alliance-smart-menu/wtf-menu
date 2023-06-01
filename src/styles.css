@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Impact';
+    src: url('./assets/font/Impact.eot');
+    src: url('./assets/font/Impact.eot?#iefix') format('embedded-opentype'),
+        url('./assets/font/Impact.woff2') format('woff2'),
+        url('./assets/font/Impact.woff') format('woff'),
+        url('./assets/font/Impact.ttf') format('truetype'),
+        url('./assets/font/Impact.svg#Impact') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+:root {
+    --color_main: #666666;
+    --color_select: #EC6707;
+    --header_heigth: 80px;
+}
+
+body, html {
+    font-family: 'Anton', 'Impact',sans-serif;
+    background-color: var(--color_main);
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.active {
+    color: var(--color_select);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+}
+
+@media screen and (max-width: 800px) { 
+    :root {
+        --header_heigth: 60px;
+    }
+}
