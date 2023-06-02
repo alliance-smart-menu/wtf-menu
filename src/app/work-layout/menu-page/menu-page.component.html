@@ -20,10 +20,19 @@
             </span>
         </div>
         <div class="sub-categories-container">
+           <!-- 
             <select name="" id="sub-categories">
                 <option value="Завтра">Заврак</option>
                 <option value="Завтра">Обед</option>
-            </select>
+            </select> 
+            -->
+            <mat-form-field>
+                <mat-select >
+                  <mat-option class="option" *ngFor="let sub_category of menuService.test" [value]="sub_category._id">
+                    {{sub_category.name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </div>
     <div class="decorator">
