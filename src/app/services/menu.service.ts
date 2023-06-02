@@ -41,7 +41,7 @@ export class MenuService {
         queryParams = queryParams.append("token", this.token);
       } 
   
-      return this.http.get<any>(`${environment.apiURL}/api/wtf/menu`)
+      return this.http.get<any>(`${environment.apiURL}/api/wtf/menu`, {params: queryParams})
     }
 
     getPosition(_id: string): Observable<any> {

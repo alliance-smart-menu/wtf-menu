@@ -46,7 +46,7 @@
                 <span class="name">
                     <h3>{{position.name[menuService.language]}}</h3>
                 </span>
-                <span class="gramm">
+                <span [ngClass]="classDiscription(position)" >
                     <b class="price-info">
                         <ng-container *ngIf="position.weight && position.weight[menuService.language]">
                             <b class="active weigth-price">{{position.weight[menuService.language]}}</b>
@@ -60,6 +60,7 @@
                       
                     </b>
                     <img 
+                    *ngIf="position.description && position.description[menuService.language]"
                     [routerLink]="['/position']"
                     [queryParams]="{ _id: position._id }"
                     class="more" src="../../../assets/more.svg" 
@@ -68,11 +69,35 @@
             </div>
         </div>
         <div *ngIf="!position.image" class="position-2">
-            <div class="info">
-                <span class="name-2">
-                    <h4>{{position.name[menuService.language]}}</h4>
-                </span>
-                <span class="gramm-2">
+            <ng-container *ngIf="position.description && position.description[menuService.language]; else elseTemplate">
+                <div class="info">
+                    <span class="name-2">
+                        <h4>{{position.name[menuService.language]}}</h4>
+                    </span>
+                    <span class="gramm-2">
+                        <b class="price-info">
+                            <ng-container *ngIf="position.weight && position.weight[menuService.language]">
+                                <b class="active weigth-price">{{position.weight[menuService.language]}}</b>
+                                &nbsp;
+                                /
+                                &nbsp;
+                            </ng-container>
+                            <ng-container *ngIf="position.cost">
+                                <b class="weigth-price">  <b class="active weigth-price"> {{position.cost}} </b> {{html.cost[menuService.language]}} </b>
+                            </ng-container>
+                        </b>
+                    </span>
+                </div>
+                <div class="more-container">
+                    <img 
+                    [routerLink]="['/position']" 
+                    [queryParams]="{ _id: position._id }"
+                    class="more" src="../../../assets/more.svg" alt="More">
+                </div>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <h4>{{position.name[menuService.language]}}</h4>
+                <span class="gramm-3">
                     <b class="price-info">
                         <ng-container *ngIf="position.weight && position.weight[menuService.language]">
                             <b class="active weigth-price">{{position.weight[menuService.language]}}</b>
@@ -85,13 +110,7 @@
                         </ng-container>
                     </b>
                 </span>
-            </div>
-            <div class="more-container">
-                <img 
-                [routerLink]="['/position']" 
-                [queryParams]="{ _id: position._id }"
-                class="more" src="../../../assets/more.svg" alt="More">
-            </div>
+            </ng-template>
         </div>
     </ng-container>
     <h3 *ngIf="menuService.positions && ( menuService.positions | positionFilter: menuService.sub_category).length == 0 && !menuService.positions_loading ">Не найденны позиции!</h3>

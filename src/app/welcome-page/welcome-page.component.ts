@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationOptions } from 'ngx-lottie';
 
 import { MenuService } from '../services/menu.service';
 
@@ -28,6 +29,10 @@ export class WelcomePageComponent implements OnInit {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
+
+  options: AnimationOptions = {
+    path: './assets/WTF.json',
+  };
 
   constructor(
     public menuService: MenuService,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 
 import { MenuService } from '../services/menu.service';
 
@@ -8,6 +9,10 @@ import { MenuService } from '../services/menu.service';
   styleUrls: ['./work-layout.component.css']
 })
 export class WorkLayoutComponent implements OnInit {
+
+  options: AnimationOptions = {
+    path: '../../assets/WTF.json',
+  };
 
   html: any = {
     menu: {

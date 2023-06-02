@@ -35,6 +35,14 @@ export class MenuPageComponent implements OnInit {
     
   }
 
+  classDiscription(position: any) {
+    if (position.description && position.description[this.menuService.language]) {
+      return "gramm"
+    } else {
+      return "without-discription"
+    }
+  }
+
   setCategory(_id: string) {
     this.menuService.category = _id
     localStorage.setItem("category", _id)

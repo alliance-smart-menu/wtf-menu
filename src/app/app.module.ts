@@ -1,5 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +25,12 @@ import { AboutPageComponent } from './work-layout/about-page/about-page.componen
 import { LangPageComponent } from './work-layout/lang-page/lang-page.component';
 import { PositionPageComponent } from './position-page/position-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -45,9 +55,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
     MatFormFieldModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+
+    LottieModule.forRoot({ player: playerFactory })
   ],
-  providers: [],
+  providers: [
+    { 
+      provide: LOCALE_ID, 
+      useValue: 'ru' 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

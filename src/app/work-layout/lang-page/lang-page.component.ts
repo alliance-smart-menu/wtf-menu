@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 
 import { MenuService } from 'src/app/services/menu.service';
 
@@ -8,6 +9,11 @@ import { MenuService } from 'src/app/services/menu.service';
   styleUrls: ['./lang-page.component.css']
 })
 export class LangPageComponent implements OnInit {
+
+  options: AnimationOptions = {
+    path: '../../../assets/WTF.json',
+  };
+
 
   constructor(
     public menuService: MenuService

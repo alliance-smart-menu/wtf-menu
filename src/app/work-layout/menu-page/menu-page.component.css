@@ -122,7 +122,7 @@ section {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
@@ -134,7 +134,15 @@ section {
 }
 
 .gramm {
-    width: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.without-discription {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -170,7 +178,7 @@ h4 {
 }
 
 .position-2 {
-    width: 66%;
+    width: 70%;
     padding: 10px 0px;
     display: flex;
     justify-content: space-between;
@@ -186,6 +194,13 @@ h4 {
 
 .gramm-2 {
     width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.gramm-3 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -223,6 +238,10 @@ mat-form-field {
     align-items: center;
 }
 
+.position-2, .position {
+    border-bottom: 4px solid var(--color_select);
+}
+
 @media screen and (max-width: 700px) {
 
     .icon {
@@ -234,11 +253,11 @@ mat-form-field {
     }
 
     .position {
-        width: 98%;
+        width: 95%;
     }
 
     .position-2 {
-        width: 92%;
+        width: 95%;
     }
 
     .position-image {
