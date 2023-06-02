@@ -19,6 +19,11 @@ export class MenuPageComponent implements OnInit {
       ru: "Кухня",
       md: "Bucătărie",
       en: "Kitchen"
+    },
+    cost: {
+      ru: "Лей",
+      md: "Lei",
+      en: "MDL"
     }
   }
 
@@ -33,6 +38,23 @@ export class MenuPageComponent implements OnInit {
   setCategory(_id: string) {
     this.menuService.category = _id
     localStorage.setItem("category", _id)
+    this.menuService.setSub_Category();
+    this.setSubCategory();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Optional: Adds smooth scrolling animation
+    });
+  }
+
+  setSubCategory() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    if (this.menuService.sub_category) {
+      localStorage.setItem("sub_category", this.menuService.sub_category)
+    }
   }
 
   selectedCategory(_id: string) {

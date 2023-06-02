@@ -16,26 +16,31 @@
         <span class="white-line"></span>
     </div>
 </header>
-<section>
-    <div class="image-container">
-        <img class="position-image"  src="../../assets/img/Espresso.png" alt="">
-    </div>
-    <div class="decorator">
-        <span class="yellow-line"></span>
-        <span class="white-line"></span>
-    </div>
+<section *ngIf="position && !loading">
+    <ng-container *ngIf="position.image" >
+        <div  class="image-container">
+            <img class="position-image"  [src]="position.image" [alt]="position.name[menuService.language]">
+        </div>
+        <div class="decorator">
+            <span class="yellow-line"></span>
+            <span class="white-line"></span>
+        </div>
+    </ng-container>
     <span class="info-title-container">
-        <h3 class="title">Цезарь с курицей</h3>
-        <h3 class="cost">
-            <h3 class="active">120</h3>
+        <h3 class="title">{{position.name[menuService.language]}}</h3>
+        <h3 class="cost" *ngIf="position.cost">
+            <h3 class="active">{{position.cost}}</h3>
             &nbsp;
-            <h3>Лей</h3>
+            <h3>{{html.cost[menuService.language]}}</h3>
         </h3>
     </span>
-    <span class="about">
-        Куринное филе, салат Лола, помидоры cherry, сыр пармизан, соус цезарь
+    <span class="about" *ngIf="position.description && position.description[menuService.language]">
+        {{position.description[menuService.language]}}
     </span>
-    <h3 class="active weigth" >
-        100 гр.
+    <h3 class="active weigth" *ngIf="position.weight && position.weight[menuService.language]">
+        {{position.weight[menuService.language]}}
     </h3>
 </section>
+<div *ngIf="loading" class="loading-menu">
+    <mat-spinner></mat-spinner>
+</div>

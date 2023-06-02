@@ -1,5 +1,5 @@
 <header>
-    <div class="header">
+    <div class="header" *ngIf="menuService.sub_categories && !menuService.sub_categories_loading">
         <div class="categories-container">
             <span 
             (click)="setCategory('64738c84699f77307907676d')"
@@ -20,17 +20,13 @@
             </span>
         </div>
         <div class="sub-categories-container">
-           <!-- 
-            <select name="" id="sub-categories">
-                <option value="Завтра">Заврак</option>
-                <option value="Завтра">Обед</option>
-            </select> 
-            -->
             <mat-form-field>
-                <mat-select >
-                  <mat-option class="option" *ngFor="let sub_category of menuService.test" [value]="sub_category._id">
-                    {{sub_category.name}}
-                  </mat-option>
+                <mat-select [(ngModel)]="menuService.sub_category" (ngModelChange)="setSubCategory()">
+                    <ng-container *ngFor="let sub_category of menuService.sub_categories">
+                        <mat-option *ngIf="sub_category.category == menuService.category" class="option"  [value]="sub_category._id">
+                            {{sub_category.name[menuService.language]}}
+                          </mat-option>
+                    </ng-container>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -40,114 +36,69 @@
         <span class="white-line"></span>
     </div>
 </header>
-<section>
-    <div class="position">
-        <div class="image">
-            <img class="position-image" src="../../../assets/img/Espresso.png" alt="">
+<section *ngIf="menuService.positions && !menuService.positions_loading">
+    <ng-container *ngFor="let position of menuService.positions | positionFilter: menuService.sub_category">
+        <div *ngIf="position.image" class="position">
+            <div class="image">
+                <img class="position-image" [src]="position.image" [alt]="position.name[menuService.language]">
+            </div>
+            <div class="info">
+                <span class="name">
+                    <h3>{{position.name[menuService.language]}}</h3>
+                </span>
+                <span class="gramm">
+                    <b class="price-info">
+                        <ng-container *ngIf="position.weight && position.weight[menuService.language]">
+                            <b class="active weigth-price">{{position.weight[menuService.language]}}</b>
+                            &nbsp;
+                            /
+                            &nbsp;
+                        </ng-container>
+                        <ng-container *ngIf="position.cost">
+                            <b class="weigth-price">  <b class="active weigth-price"> {{position.cost}} </b> {{html.cost[menuService.language]}} </b>
+                        </ng-container>
+                      
+                    </b>
+                    <img 
+                    [routerLink]="['/position']"
+                    [queryParams]="{ _id: position._id }"
+                    class="more" src="../../../assets/more.svg" 
+                    alt="More">
+                </span>
+            </div>
         </div>
-        <div class="info">
-            <span class="name">
-                <h3>Цезарь с креветками и варенной залуупой</h3>
-            </span>
-            <span class="gramm">
-                <b class="price-info">
-                    <ng-container >
-                        <b class="active weigth-price">120 гр.</b>
-                        &nbsp;
-                        /
-                        &nbsp;
-                    </ng-container>
-                    <ng-container >
-                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
-                    </ng-container>
-                  
-                </b>
+        <div *ngIf="!position.image" class="position-2">
+            <div class="info">
+                <span class="name-2">
+                    <h4>{{position.name[menuService.language]}}</h4>
+                </span>
+                <span class="gramm-2">
+                    <b class="price-info">
+                        <ng-container *ngIf="position.weight && position.weight[menuService.language]">
+                            <b class="active weigth-price">{{position.weight[menuService.language]}}</b>
+                            &nbsp;
+                            /
+                            &nbsp;
+                        </ng-container>
+                        <ng-container *ngIf="position.cost">
+                            <b class="weigth-price">  <b class="active weigth-price"> {{position.cost}} </b> {{html.cost[menuService.language]}} </b>
+                        </ng-container>
+                    </b>
+                </span>
+            </div>
+            <div class="more-container">
                 <img 
-                [routerLink]="['/position']"
-                class="more" src="../../../assets/more.svg" 
-                alt="More">
-            </span>
+                [routerLink]="['/position']" 
+                [queryParams]="{ _id: position._id }"
+                class="more" src="../../../assets/more.svg" alt="More">
+            </div>
         </div>
-    </div>
-    <div class="position">
-        <div class="image">
-            <img class="position-image" src="../../../assets/img/Espresso.png" alt="">
-        </div>
-        <div class="info">
-            <span class="name">
-                <h3>Цезарь с креветками и варенной залуупой</h3>
-            </span>
-            <span class="gramm">
-                <b class="price-info">
-                    <ng-container >
-                        <b class="active weigth-price">120 гр.</b>
-                        &nbsp;
-                        /
-                        &nbsp;
-                    </ng-container>
-                    <ng-container >
-                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
-                    </ng-container>
-                  
-                </b>
-                <img 
-                [routerLink]="['/position']"
-                class="more" src="../../../assets/more.svg" 
-                alt="More">
-            </span>
-        </div>
-    </div>
-    <div class="position">
-        <div class="image">
-            <img class="position-image" src="../../../assets/img/Espresso.png" alt="">
-        </div>
-        <div class="info">
-            <span class="name">
-                <h3>Цезарь с креветками и варенной залуупой</h3>
-            </span>
-            <span class="gramm">
-                <b class="price-info">
-                    <ng-container >
-                        <b class="active weigth-price">120 гр.</b>
-                        &nbsp;
-                        /
-                        &nbsp;
-                    </ng-container>
-                    <ng-container >
-                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
-                    </ng-container>
-                  
-                </b>
-                <img 
-                [routerLink]="['/position']"
-                class="more" src="../../../assets/more.svg" 
-                alt="More">
-            </span>
-        </div>
-    </div>
-    <div class="position-2">
-        <div class="info">
-            <span class="name-2">
-                <h4>Цезарь с креветками и варенной залуупой</h4>
-            </span>
-            <span class="gramm-2">
-                <b class="price-info">
-                    <ng-container >
-                        <b class="active weigth-price">120 гр.</b>
-                        &nbsp;
-                        /
-                        &nbsp;
-                    </ng-container>
-                    <ng-container >
-                        <b class="weigth-price">  <b class="active weigth-price"> 120 </b> лей</b>
-                    </ng-container>
-                </b>
-            </span>
-        </div>
-        <div class="more-container">
-            <img 
-            [routerLink]="['/position']" 
-            class="more" src="../../../assets/more.svg" alt="More">
-        </div>
-    </div>
+    </ng-container>
+    <h3 *ngIf="menuService.positions && ( menuService.positions | positionFilter: menuService.sub_category).length == 0 && !menuService.positions_loading ">Не найденны позиции!</h3>
 </section>
+<h1 *ngIf="!menuService.positions && !menuService.positions_loading">
+    Ошибка поиска позиций!
+</h1>
+<div *ngIf="menuService.sub_categories_loading || menuService.positions_loading" class="loading-menu">
+    <mat-spinner></mat-spinner>
+</div>
