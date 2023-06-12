@@ -76,9 +76,11 @@ button:hover {
 section {
     width: 100%;
     padding-top: var(--header_heigth);
+    /* 
     background-image: url('../../assets/background.svg');
     background-size: contain;
-    background-position: center;
+    background-position: center; 
+    */
     min-height: calc( 90vh - ( var(--header_heigth) ) );
     display: flex;
     flex-direction: column;
@@ -87,10 +89,12 @@ section {
 
 .image-container {
     width: 100%;
+    /*     
     background-image: url('../../assets/image-background.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 30%;
+     */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,7 +129,7 @@ h3 {
 .about {
     width: 70%;
     padding: 8px 0px;
-    border-top: 1px solid white;
+    border-top: 1px solid var(--color_select);
     border-bottom: 1px solid white;
     font-size: 16px;
 }
