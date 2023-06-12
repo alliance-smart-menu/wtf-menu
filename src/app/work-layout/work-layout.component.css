@@ -36,7 +36,7 @@ header {
 
 .decorator {
     width: 100%;
-    height: 5px;
+    height: var(--decorator_heigth);
     display: flex;
     justify-content: space-between;
 }
@@ -83,6 +83,10 @@ b {
 }
 
 section {
+    background-image: url('../../assets/background.svg');
+    background-size: contain;
+    background-position: center;
+    min-height: calc( 90vh - ( var(--header_heigth) ) );
     padding-top: var(--header_heigth);
 }
 
