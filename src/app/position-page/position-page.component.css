@@ -39,7 +39,8 @@ header {
 }
 
 button {
-    font-family: 'Anton', 'Impact',sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     cursor: pointer;
     height: 70%;
     width: 30%;
@@ -119,6 +120,7 @@ h3 {
 }
 
 .title {
+    font-weight: 700;
     text-align: left;
 }
 
@@ -153,7 +155,7 @@ h3 {
 @media screen and (max-width: 700px) { 
 
     h3 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     button {

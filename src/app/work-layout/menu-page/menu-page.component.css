@@ -135,10 +135,12 @@ section {
 
 .position-image {
     border-radius: 2%;
+    margin-bottom: 8px;
     width: 100%;
 }
 
 .position-title {
+    font-weight: 700;
     font-size: 18px;
     text-align: center;
 }
@@ -187,7 +189,7 @@ section {
     }
 
     .position-title {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     b {
