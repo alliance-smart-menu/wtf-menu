@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MenuService } from '../services/menu.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-position-page',
@@ -34,36 +35,34 @@ export class PositionPageComponent implements OnInit {
     private router: Router,
   ) {}
 
+
   ngOnInit(): void {
-    this.findPosition();
-  }
-
-  findPosition() {
-    this.loading = true
-
-    const _id = this.route.snapshot.queryParamMap.get('_id');
-
-    if (_id) {
-      this.menuService.getPosition(_id).subscribe(
-        data => {
+    
+    this.route.queryParamMap.subscribe(params => {
+      const _id = params.get('_id');
+      if (_id) {
+        this.loading = true
+        this.menuService.getPosition(_id).subscribe(
+          data => {
             if (data) {
-              this.position = data
-              this.filterPositins();
-              this.loading = false
+              this.position = data;
+              this.filterPositions();
+              this.loading = false;
             } else {
-              this.router.navigate(['/menu'])
+              this.router.navigate(['/menu']);
             }
-        },
-        error => {
-          this.router.navigate(['/menu'])
-        }
-      )
-    } else {
-      this.router.navigate(['/menu'])
-    }
-
+          },
+          error => {
+            this.router.navigate(['/menu']);
+          }
+        );
+      } else {
+        this.router.navigate(['/menu']);
+      }
+    });
 
   }
+
 
   changePosition() {
     if (this.positions && this.position) {
@@ -78,16 +77,12 @@ export class PositionPageComponent implements OnInit {
   
       if (newPosition) {
         this.router.navigate(['/position'], { queryParams: { _id: newPosition._id } });
-        this.loading = true
-        setTimeout(() => {
-          this.ngOnInit();
-        }, 300);
       }
     }
   }
 
 
-  filterPositins() {
+  filterPositions() {
     if (this.menuService.positions && this.position) {
 
       this.positions = this.menuService.positions.filter( (position: any) => 

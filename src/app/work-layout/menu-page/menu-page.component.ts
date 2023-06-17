@@ -32,7 +32,7 @@ export class MenuPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
+
   }
 
   classDiscription(position: any) {
