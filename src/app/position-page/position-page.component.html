@@ -16,7 +16,7 @@
         <span class="white-line"></span>
     </div>
 </header>
-<section *ngIf="position && !loading">
+<section *ngIf="position && !loading" (click)="changePosition();">
     <ng-container *ngIf="position.image" >
         <div  class="image-container">
             <img class="position-image"  [src]="position.image" [alt]="position.name[menuService.language]">

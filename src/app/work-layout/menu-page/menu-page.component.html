@@ -50,8 +50,12 @@
                 {{position.name[menuService.language]}}
             </h3>
             <span *ngIf="position.cost || position.weight" class="position-info">
-                <b *ngIf="position.weight[menuService.language]"> {{position.weight[menuService.language]}} </b>
-                <b *ngIf="position.cost"> {{position.cost}} MDL </b>
+                <span class="info-container">
+                    <b *ngIf="position.weight[menuService.language]"> {{position.weight[menuService.language]}} </b>
+                </span>
+                <span class="info-container cost">
+                    <b *ngIf="position.cost" > {{position.cost}} MDL </b>
+                </span>
             </span>
         </div>
     </ng-container>

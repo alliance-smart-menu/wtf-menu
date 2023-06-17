@@ -26,6 +26,7 @@ export class PositionPageComponent implements OnInit {
   }
 
   position: any
+  positions: any[] | undefined
 
   constructor(
     public menuService: MenuService,
@@ -47,6 +48,7 @@ export class PositionPageComponent implements OnInit {
         data => {
             if (data) {
               this.position = data
+              this.filterPositins();
               this.loading = false
             } else {
               this.router.navigate(['/menu'])
@@ -61,6 +63,38 @@ export class PositionPageComponent implements OnInit {
     }
 
 
+  }
+
+  changePosition() {
+    if (this.positions && this.position) {
+      const currentIndex = this.positions.findIndex((position: any) => position._id === this.position._id);
+      let nextIndex = currentIndex + 1;
+  
+      if (nextIndex >= this.positions.length) {
+        nextIndex = 0;
+      }
+  
+      const newPosition = this.positions[nextIndex];
+  
+      if (newPosition) {
+        this.router.navigate(['/position'], { queryParams: { _id: newPosition._id } });
+        this.loading = true
+        setTimeout(() => {
+          this.ngOnInit();
+        }, 300);
+      }
+    }
+  }
+
+
+  filterPositins() {
+    if (this.menuService.positions && this.position) {
+
+      this.positions = this.menuService.positions.filter( (position: any) => 
+        position.sub_category == this.position.sub_category
+      )
+
+    }
   }
 
 }
