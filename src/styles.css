@@ -18,7 +18,7 @@
 
 
 :root {
-    --color_main: #1f1f1f;
+    --color_main: white;
     --color_select: #ff7300;
     --header_heigth: 80px;
     --decorator_heigth: 3px;
@@ -28,7 +28,7 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     background-color: var(--color_main);
-    color: white;
+    color: #1f1f1f;
     margin: 0;
     padding: 0;
     height: 100%;
