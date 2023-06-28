@@ -43,8 +43,8 @@
         [routerLink]="['/position']"
         [queryParams]="{_id: position._id}"
         >
-            <ng-container *ngIf="position.image">
-                <img class="position-image" [src]="position.image" [alt]="position.name[menuService.language]">
+            <ng-container *ngIf="position.img && position.img.url">
+                <img class="position-image" [src]="position.img.url" [alt]="position.name[menuService.language]">
             </ng-container>
             <h3 class="position-title">
                 {{position.name[menuService.language]}}

@@ -17,9 +17,9 @@
     </div>
 </header>
 <section *ngIf="position && !loading" (click)="changePosition();">
-    <ng-container *ngIf="position.image" >
+    <ng-container *ngIf="position.img && position.img.url" >
         <div  class="image-container">
-            <img class="position-image"  [src]="position.image" [alt]="position.name[menuService.language]">
+            <img class="position-image"  [src]="position.img.url" [alt]="position.name[menuService.language]">
         </div>
         <div class="decorator">
             <span class="yellow-line"></span>
